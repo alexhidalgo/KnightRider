@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import omit from 'lodash/object/omit';
 import assign from 'lodash/object/assign';
 import mapValues from 'lodash/object/mapValues';
-
+/*
 const initialState = {
   friends: [1, 2, 3],
   friendsById: {
@@ -20,6 +20,33 @@ const initialState = {
     }
   }
 };
+*/
+const initialState = {
+  vehicles: [1, 2, 3],
+  vehiclesById: {
+    1: {
+      id: 1,
+      make: 'Chevrolet',
+      model: 'Tahoe',
+      year: '2007',
+      doorLocks: true
+    },
+    2: {
+      id: 2,
+      make: 'Chevrolet',
+      model: 'Tahoe',
+      year: '2008',
+      doorLocks: true
+    },
+    3: {
+      id: 3,
+      make: 'Chevrolet',
+      model: 'Tahoe',
+      year: '2009',
+      doorLocks: true
+    }
+  }
+}
 
 export default function friends(state = initialState, action) {
   switch (action.type) {

@@ -13,7 +13,7 @@ export default class AddFriendInput extends Component {
         type="text"
         autoFocus="true"
         className={classnames('form-control', styles.addFriendInput)}
-        placeholder="Type the name of a friend"
+        placeholder="Search using make, model, year"
         value={this.state.name}
         onChange={this.handleChange.bind(this)}
         onKeyDown={this.handleSubmit.bind(this)} />
