@@ -48,30 +48,33 @@ const initialState = {
   }
 }
 
-export default function friends(state = initialState, action) {
+export default function friends (state = initialState, action) {
   switch (action.type) {
 
-    case types.ADD_FRIEND:
-      const newId = state.friends[state.friends.length-1] + 1;
+    case types.ADD_VEHICLE:
+      const newId = state.vehicles[state.vehicles.length - 1] + 1
       return {
         ...state,
-        friends: state.friends.concat(newId),
-        friendsById: {
-          ...state.friendsById,
+        vehicles: state.vehicles.concat(newId),
+        vehiclesById: {
+          ...state.vehiclesById,
           [newId]: {
             id: newId,
-            name: action.name
+            make: action.make,
+            model: action.model,
+            year: action.year,
+            doorLocks: action.doorLocks
           }
-        },
+        }
       }
 
-    case types.DELETE_FRIEND:
+    case types.DELETE_VEHICLE:
       return {
         ...state,
-        friends: state.friends.filter(id => id !== action.id),
-        friendsById: omit(state.friendsById, action.id)
+        vehicles: state.vehicles.filter(id => id !== action.id),
+        vehiclesById: omit(state.vehiclesById, action.id)
       }
-
+    /*
     case types.STAR_FRIEND:
       return {
         ...state,
@@ -81,8 +84,9 @@ export default function friends(state = initialState, action) {
             friend
         })
       }
+    */
 
     default:
-      return state;
+      return state
   }
 }

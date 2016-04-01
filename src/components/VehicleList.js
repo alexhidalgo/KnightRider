@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import mapValues from 'lodash/object/mapValues';
 
 import styles from './FriendList.css';
-import FriendListItem from './FriendListItem';
+import VehicleListItem from './VehicleListItem';
 
 export default class FriendList extends Component {
   static propTypes = {
@@ -14,12 +14,14 @@ export default class FriendList extends Component {
     return (
       <ul className={styles.friendList}>
         {
-          mapValues(this.props.friends, (friend) => {
-            return (<FriendListItem
-              key={friend.id}
-              id={friend.id}
-              name={friend.name}
-              starred={friend.starred}
+          mapValues(this.props.vehicles, (vehicle) => {
+            return (<VehicleListItem
+              key={vehicle.id}
+              id={vehicle.id}
+              make={vehicle.make}
+              model={vehicle.model}
+              year={vehicle.year}
+              doorLocks={vehicle.doorLocks}
               {...this.props.actions} />);
           })
         }
